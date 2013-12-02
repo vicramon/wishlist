@@ -23,7 +23,8 @@
         .gray
           No wishes entered yet.
 
-    - if user.about_comments
-      = link_to pluralize(user.about_comments.count, 'comment'), wishlist_path(user)
-    - else
-      = link_to "Add a comment", [:wishlist, user]
+    .comment_link
+      - if user.about_comments.present?
+        = link_to pluralize(user.about_comments.count, 'comment'), wishlist_path(user)
+      - else
+        = link_to "Add a comment", wishlist_path(user.id)
