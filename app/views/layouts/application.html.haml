@@ -1,0 +1,19 @@
+!!!
+%html(lang="en-US")
+  %head
+    %title Wishlist App
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = favicon_link_tag
+    = yield :head
+  %body
+    %header
+      - if signed_in?
+        %nav#right
+          Merry Christmas,
+          = current_user.name + "."
+          = link_to "Logout", sign_out_path
+      %h1 Ramon Family Wishlist App
+    #container
+      = yield

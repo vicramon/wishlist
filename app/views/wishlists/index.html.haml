@@ -1,0 +1,25 @@
+
+#my_wishlist
+
+  %h2 My Wishlist
+
+  - if flash[:update]
+    .update
+      = flash[:update]
+
+  = form_tag wishlist_path(current_user), method: "patch" do
+    = text_area_tag :wishlist, current_user.wishlist, class: 'wishlist'
+    .submit_textarea
+      = submit_tag "Save Changes"
+
+#family_wishlists
+  %h2 My Family's Wishlists
+  - @family_members.each do |user|
+    .family_member_name
+      = user.name
+    .family_member_wishlist
+      - if user.wishlist
+        = user.wishlist
+      - else
+        .gray
+          No wishes entered yet.

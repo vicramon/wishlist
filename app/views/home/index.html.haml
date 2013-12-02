@@ -1,1 +1,49 @@
 %h1 Welcome
+
+%article#login
+  %h2 Login
+
+  - if flash[:alert]
+    .alert= flash[:alert]
+
+  = form_tag sessions_path do
+
+    %dl
+      = label_tag "Email"
+      = text_field_tag :email
+
+    %dl
+      = label_tag "Password"
+      = password_field_tag :password
+
+    %dl
+      = submit_tag "Login"
+
+%article#signup
+  %h2 Signup
+
+  - if flash[:signup]
+    .alert= flash[:signup]
+
+  = form_for user do |f|
+
+    %dl
+      = f.label :name
+      = f.text_field :name
+
+    %dl
+      = f.label :email
+      = f.text_field :email
+
+    %dl
+      = f.label "Create a Password"
+      = f.password_field :password
+
+    %dl
+      = label_tag "Signup Code"
+      = text_field_tag :signup_code
+
+
+    %dl
+      = label_tag nil
+      = f.submit "Sign up"
