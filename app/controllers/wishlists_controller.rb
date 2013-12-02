@@ -7,6 +7,7 @@ class WishlistsController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    redirect_to :wishlists if @user == current_user
     @comments = @user.about_comments.order("created_at desc")
   end
 
