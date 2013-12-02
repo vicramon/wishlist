@@ -8,6 +8,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :remember_token
       t.string :reset_password_token
       t.string :session_token
+
+      t.timestamps
     end
   end
 end
