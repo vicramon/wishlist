@@ -1,0 +1,34 @@
+= link_to "&laquo; Back to dashboard".html_safe, :wishlists
+
+%h2 #{@user.name}'s Wishlist
+
+.wishlist_display
+  = simple_format @user.wishlist
+
+.gray_line
+
+%article#comments
+  %h3 Comments
+
+  - if flash[:update]
+    .update= flash[:update]
+
+  #comment_form
+
+    = form_for Comment.new do |f|
+      = f.text_area :text, class: 'comment'
+      = f.hidden_field :about_id, value: @user.id
+      = f.hidden_field :author_id, value: current_user.id
+
+      .textarea_submit
+        = f.submit "Add Comment"
+
+  #comment_listing
+    - @comments.each do |comment|
+      .comment
+        .byline= "#{comment.author.name} wrote about #{time_ago_in_words comment.updated_at} ago"
+        .text= comment.text
+
+      - if @comments.length == 0
+        .gray
+          No comments have been made yet.

@@ -9,6 +9,13 @@ body
   padding: 0
   margin: 0
 
+a, a:hover, a:visited, a:active
+  text-decoration: none
+  color: #0066cc
+
+a:hover
+  text-decoration: underline
+
 h1
   margin: 0
   padding: 0 0 15px 0
@@ -85,6 +92,10 @@ article#signup
 
 .family_member_wishlist
   margin: 15px 0 20px 0
+  max-width: 500px
+
+.wishlist_display
+  max-width: 500px
 
 .gray
   color: #888
@@ -98,3 +109,22 @@ article#signup
 #family_wishlists
   margin-left: 80px
 
+.gray_line
+  border-top: 1px solid #ccc
+  margin: 20px 0 20px
+  width: 450px
+
+article#comments
+  #comment_form
+    textarea.comment
+      width: 350px
+      height: 60px
+
+  #comment_listing
+    margin-top: 20px
+    .comment
+      padding-bottom: 20px
+      .byline
+        color: #555
+      .text
+        padding-top: 8px

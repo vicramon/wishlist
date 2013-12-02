@@ -18,7 +18,12 @@
       = user.name
     .family_member_wishlist
       - if user.wishlist
-        = user.wishlist
+        = simple_format user.wishlist
       - else
         .gray
           No wishes entered yet.
+
+    - if user.about_comments
+      = link_to pluralize(user.about_comments.count, 'comment'), wishlist_path(user)
+    - else
+      = link_to "Add a comment", [:wishlist, user]
