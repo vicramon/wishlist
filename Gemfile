@@ -4,6 +4,7 @@ ruby '2.0.0'
 gem 'authem'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'decent_ham'
+gem 'decent_exposure'
 gem 'fabrication'
 gem 'haml-rails'
 gem 'jquery-rails'
@@ -17,6 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'guard-livereload', require: false
   gem 'rspec-rails'
 end
 
