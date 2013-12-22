@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   expose(:user, attributes: :user_params)
 
   def create
-    if user.save and params[:signup_code] == 'dakota'
+    if user.save and params[:signup_code] == 'CREATE-SIGNUP-CODE'
       sign_in(user)
       redirect_to :wishlists
     else
